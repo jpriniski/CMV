@@ -78,7 +78,7 @@ def get_delta_count(comments):
     return count
 ```
 ### Determining use of evidence
-We consider evidence to be cited if a user does one of two things: (1) cite an external website using a hyperlink, and (2) use statistically oriented language. 
+We consider evidence use to consitute one of two things: (1) a user cites an external website using a hyperlink, or (2) a user uses statistically-oriented language. 
 #### Hyperlinks
 The function `has_link` checks every word `w` used in a discussion to see if it contains one of the substrings that signifies a link to an external webpage.
 ``` python
