@@ -14,7 +14,7 @@ _exciting stuff is yet to come!_
 
 ## Documentation & code walk-through
 
-   ### Connecting to the Reddit API
+### Connecting to the Reddit API
 To collect posts to CMV and to collect the comments in every discussion, we connect to the Reddit API using the Python Reddit API Wrapper (PRAW).  Oauth encryption is used, so to connect to the API, you will need to have your own Reddit account and API credentials. After connecting to the Reddit API, we connect directly to our subreddit of interest: r/ChangeMyView.
 
 ```python
@@ -27,7 +27,7 @@ reddit = praw.Reddit(client_id='',
 
 subreddit = reddit.subreddit('changemyview')
 ```
-   ### Determining user belief change
+### Determining user belief change
 The [delta system](https://www.reddit.com/r/changemyview/wiki/deltasystem) is a way that users self track attitude change on _Change My View_. Users award comments deltas that change their minds.  Therefore, to track attitude change, we must track the comments that are awarded deltas.  
 
 We first do this by checking if the delta bot, an automated delta awarder, signifies that a delta has been awarded. 
@@ -74,9 +74,9 @@ def get_delta_count(comments):
             count += 1
     return count
 ```
-   ### Determining use of evidence
+### Determining use of evidence
 We consider evidence to be cited if a user does one of two things: (1) cite an external website using a hyperlink, and (2) use statistically oriented language. 
-   #### Hyperlinks
+#### Hyperlinks
 The function `has_link` checks every word `w` used in a discussion to see if it contains one of the substrings that signifies a link to an external webpage.
 ``` python
 def has_link(w):
