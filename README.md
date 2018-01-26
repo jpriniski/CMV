@@ -5,4 +5,7 @@ Code repo for the [Computation, Cognition, and Development Lab](https://www.cogn
 [_Change My View_](https://www.reddit.com/r/changemyview/)  is a popular Reddit forum where users post their stance on issues with the understanding that others will attempt to change their view by providing arguments opposing their perspective; as to be expected, some arguments are more convincing than others. This project seeks to study the mechanisms that drive belief change on the forum, and this is its code. 
 
 
-Scripts for this project can be found here ![here](./scripts)
+
+
+## Scripts 
+The code for this project can be found ![here](./scripts)
