@@ -7,7 +7,7 @@ This is a code repository for the [Computation, Cognition, and Development Lab](
 
 ## Scripts 
 - The code for this project can be found [here](https://github.com/jpriniski/CMV/tree/master/scripts)
-- [This notebook](https://github.com/jpriniski/CMV/blob/master/scripts/evidence_use.ipynb) documents are we study evidence use and rates of belief change on _Change My View_
+- [This notebook](https://github.com/jpriniski/CMV/blob/master/scripts/evidence_use.ipynb) details how we studied evidence use and rates of belief change on _Change My View_
 
 ## Research & Publications
 _exciting stuff is yet to come!_
