@@ -3,11 +3,11 @@
 This is a code repository for the [Computation, Cognition, and Development Lab](https://www.cognitionasu.org/) at ASU. In this project, we are interested in studying how people's minds are changed on the popular Reddit forum [_Change My View_](https://www.reddit.com/r/changemyview/), which is a subreddit where users post their stance on issues with the understanding that others will attempt to change their view by providing arguments opposing their perspective.  As to be expected, some arguments are more convincing than others. And this project seeks to study the mechanisms that makes certain arguments more succesfull than others, and ultimately uncover the factors that drive belief change on the forum.
 
 ## Data
-- Data we collected for this project can be found ![here](./data)
+- Data we collected for this project can be found [here](https://github.com/jpriniski/CMV/tree/master/data)
 
 ## Scripts 
-- The code for this project can be found ![here](./scripts)
-- ![This notebook](./scripts/evidence_use.ipynb) documents are we study evidence use and rates of belief change on _Change My View_
+- The code for this project can be found [here](https://github.com/jpriniski/CMV/tree/master/scripts)
+- [This notebook](https://github.com/jpriniski/CMV/blob/master/scripts/evidence_use.ipynb) documents are we study evidence use and rates of belief change on _Change My View_
 
 ## Research & Publications
 _exciting stuff is still to come!_
@@ -18,7 +18,54 @@ _exciting stuff is still to come!_
    ### Traversing the discussion tree
 
    ### Determining user belief change
+The [delta system](https://www.reddit.com/r/changemyview/wiki/deltasystem) is a way that users self track attitude change on _Change My View_. Users award comments deltas that change their minds.  Therefore, to track attitude change, we must track the comments that are awarded deltas.  
 
+We first do this by checking if the delta bot, an automated delta awarder, signifies that a delta has been awarded. 
+```python
+
+def has_delta(body):
+    if 'confirmed: 1 delta awarded to' in body.lower():
+        return True
+    return False
+
+```
+Once we find that a delta has been awarded in the discussion, we have to traverse updwards through the discussion tree until the root node (which signifies the comment that the a user awarded a delta to, a.k.a a _'delta awarded comment (DAC)'_) is encountered.  We then return the whole thread of discussion starting from DAC to the delta bot's awarding of the delta. 
+```python
+def set_value(value, value_list):
+    value_list.append(value)
+    return
+
+def get_thread(comment, root, thread):
+
+    if comment.parent() is root:
+        return set_value(comment.body, thread)
+    get_thread(comment.parent(), root, thread)
+    set_value(comment.body, thread)
+
+def get_delta_thread(post):
+    post.comments.replace_more(limit = 0)
+    queue = post.comments[:]
+    threads = []
+    root = post
+    while queue:
+        comment = queue.pop(0)
+        if has_delta(comment.body):
+            thread = []
+            get_thread(comment, root, thread)
+            threads.append(thread)
+        queue.extend(comment.replies)
+    
+    return threads
+```
+We are also interested in the amount of deltas awarded in a given discussion. 
+```python
+def get_delta_count(comments):
+    count = 0
+    for comment in comments:
+        if has_delta(comment):
+            count += 1
+    return count
+```
    ### Determining use of evidence
 We consider evidence to be cited if a user does one of two things: (1) cite an external website using a hyperlink, and (2) use statistically oriented language. 
 
