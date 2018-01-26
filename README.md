@@ -4,5 +4,5 @@ This is a code repository for the [Computation, Cognition, and Development Lab](
 
 
 ## Scripts 
-The code for this project can be found ![here](./scripts)
-![This notebook](./scripts/Belief_Change_and_Use_of_Evidence_on_CMV.ipynb) documents are we study evidence use and rates of belief change on _Change My View_
+-The code for this project can be found ![here](./scripts)
+- ![This notebook](./scripts/Belief Change and Use of Evidence on CMV.ipynb) documents are we study evidence use and rates of belief change on _Change My View_
