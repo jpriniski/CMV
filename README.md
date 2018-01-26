@@ -10,13 +10,23 @@ This is a code repository for the [Computation, Cognition, and Development Lab](
 - [This notebook](https://github.com/jpriniski/CMV/blob/master/scripts/evidence_use.ipynb) documents are we study evidence use and rates of belief change on _Change My View_
 
 ## Research & Publications
-_exciting stuff is still to come!_
+_exciting stuff is yet to come!_
 
 ## Documentation & code walk-through
 
    ### Connecting to the Reddit API
-   ### Traversing the discussion tree
+To collect posts to CMV and to collect the comments in every discussion, we connect to the Reddit API using the Python Reddit API Wrapper (PRAW).  Oauth encryption is used, so to connect to the API, you will need to have your own Reddit account and API credentials. After connecting to the Reddit API, we connect directly to our subreddit of interest: r/ChangeMyView.
 
+```python
+reddit = praw.Reddit(client_id='',
+                     client_secret='',
+                     password='',
+                     user_agent='',
+                     username='')
+
+
+subreddit = reddit.subreddit('changemyview')
+```
    ### Determining user belief change
 The [delta system](https://www.reddit.com/r/changemyview/wiki/deltasystem) is a way that users self track attitude change on _Change My View_. Users award comments deltas that change their minds.  Therefore, to track attitude change, we must track the comments that are awarded deltas.  
 
@@ -27,7 +37,6 @@ def has_delta(body):
     if 'confirmed: 1 delta awarded to' in body.lower():
         return True
     return False
-
 ```
 Once we find that a delta has been awarded in the discussion, we have to traverse updwards through the discussion tree until the root node (which signifies the comment that the a user awarded a delta to, a.k.a a _'delta awarded comment (DAC)'_) is encountered.  We then return the whole thread of discussion starting from DAC to the delta bot's awarding of the delta. 
 ```python
@@ -36,7 +45,6 @@ def set_value(value, value_list):
     return
 
 def get_thread(comment, root, thread):
-
     if comment.parent() is root:
         return set_value(comment.body, thread)
     get_thread(comment.parent(), root, thread)
@@ -68,9 +76,7 @@ def get_delta_count(comments):
 ```
    ### Determining use of evidence
 We consider evidence to be cited if a user does one of two things: (1) cite an external website using a hyperlink, and (2) use statistically oriented language. 
-
    #### Hyperlinks
-   
 The function `has_link` checks every word `w` used in a discussion to see if it contains one of the substrings that signifies a link to an external webpage.
 ``` python
 def has_link(w):
@@ -78,9 +84,7 @@ def has_link(w):
     if any(e in w for e in extensions) and not ('reddit.com' in w):
         return True
 ```
-
 For a more detailed picture of how links are used in a total discussion on _Change My View_ we are interested in counting the total amount of links used in the discussion, `tot_link`, the amount of comments that cite at least one link, `com_links`, and the names of the websites a user links to, `links_list`. 
-
 ``` python
 def cnt_links(links):
     com_links = 0
@@ -95,5 +99,4 @@ def cnt_links(links):
             links_list.append(post_links)
             com_links += 1
     return com_links, tot_links, links_list
-    
 ```
