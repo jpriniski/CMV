@@ -32,7 +32,6 @@ The [delta system](https://www.reddit.com/r/changemyview/wiki/deltasystem) is a 
 
 We first do this by checking if the delta bot, an automated delta awarder, signifies that a delta has been awarded. 
 ```python
-
 def has_delta(body):
     if 'confirmed: 1 delta awarded to' in body.lower():
         return True
@@ -84,7 +83,7 @@ def has_link(w):
     if any(e in w for e in extensions) and not ('reddit.com' in w):
         return True
 ```
-For a more detailed picture of how links are used in a total discussion on _Change My View_ we are interested in counting the total amount of links used in the discussion, `tot_link`, the amount of comments that cite at least one link, `com_links`, and the names of the websites a user links to, `links_list`. 
+To paint a more detailed picture of how links are used in a total discussion on _Change My View_ we are interested in counting the total amount of links used in the discussion, `tot_link`, the amount of comments that cite at least one link, `com_links`, and the names of the websites a user links to, `links_list`. 
 ``` python
 def cnt_links(links):
     com_links = 0
@@ -100,3 +99,14 @@ def cnt_links(links):
             com_links += 1
     return com_links, tot_links, links_list
 ```
+#### Statistically-oriented language
+We consider statistically-oriented language to consist of the use of digits or commonly used data-oriented ans statistical words.  The functions `has_dig` and `has_stat_langauge` checks every word `w` used in a discussion to see if it contains one of the a digit or uses a commonly used staistical word.
+```python
+def has_dig(w):
+    return any(ch.isdigit() for ch in w)
+
+def has_stat_language(w):
+    terms = ['data', 'stats', 'statistics', 'figures', '%', 'percent', 'average']
+    if any(t in w for t in terms) or has_dig(w):
+        return True
+ ```
