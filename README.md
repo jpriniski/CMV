@@ -12,9 +12,12 @@ This is a code repository for the [Computation, Cognition, and Development Lab](
 ## Scripts 
 - The code for this project can be found [here](https://github.com/jpriniski/CMV/tree/master/scripts)
 - [This notebook](https://github.com/jpriniski/CMV/blob/master/scripts/evidence_use.ipynb) details how we studied evidence use and rates of belief change on _Change My View_
+- [This script](https://github.com/jpriniski/CMV/blob/master/scripts/cmv_analysis.py), contains a more expansive 'evidence language' set, more accurately measures rates of delta awarding, and collects all comments/discussion rather than top-level comments.  It can also be ran from the command line. 
 
-## Research & Publications
-_exciting stuff is yet to come!_
+## Research & Publications 
+_pdfs of articles can be found on the [lab](cognitionasu.org) website_
+
+Priniski, H. J., & Horne, Z. (Under review). Attitude Change on Reddit's Change My View.
 
 ## Documentation & code walk-through
 
