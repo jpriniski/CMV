@@ -15,7 +15,7 @@ This is a code repository for the [Computation, Cognition, and Development Lab](
 - [This script](https://github.com/jpriniski/CMV/blob/master/scripts/cmv_analysis.py), contains a more expansive 'evidence language' set, more accurately measures rates of delta awarding, and collects all comments/discussion rather than top-level comments.  It can also be ran from the command line. 
 
 ## Research & Publications 
-_pdfs of articles can be found on the [lab](cognitionasu.org) website_
+_pdfs of articles can be found on the [lab](https://www.cognitionasu.org) website_
 
 Priniski, H. J., & Horne, Z. (Under review). Attitude Change on Reddit's Change My View.
 
