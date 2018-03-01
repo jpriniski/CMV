@@ -1,6 +1,6 @@
 # Attitude Change on Change My View (CMV)
 
-This is a code repository for the [Computation, Cognition, and Development Lab](https://www.cognitionasu.org/) at ASU. In this project, we are interested in studying how people's minds are changed on the popular Reddit forum [_Change My View_](https://www.reddit.com/r/changemyview/), which is a subreddit where users post their stance on issues with the understanding that others will attempt to change their view by providing arguments opposing their perspective.  As to be expected, some arguments are more convincing than others. And this project seeks to study the mechanisms that makes certain arguments more succesfull than others, and ultimately uncover the factors that drive belief change on the forum.
+This is a code repository for the [Computation, Cognition, and Development Lab](https://www.cognitionasu.org/) at ASU, and this project studies attitude change on the subreddit [_Change My View_](https://www.reddit.com/r/changemyview/).  CMV is a popular online community where users post their stances on issues with the understanding that others will attempt to change their view by providing arguments opposing their perspective.  CMV allows us to study attitude change "in the wild" and with respect to a wide-variety of topics.
 
 ## Programming languages used
 - Data collection and preperation was exectued with Python
@@ -11,8 +11,8 @@ This is a code repository for the [Computation, Cognition, and Development Lab](
 
 ## Scripts 
 - The code for this project can be found [here](https://github.com/jpriniski/CMV/tree/master/scripts)
-- [This notebook](https://github.com/jpriniski/CMV/blob/master/scripts/evidence_use.ipynb) details how we studied evidence use and rates of belief change on _Change My View_
-- [This script](https://github.com/jpriniski/CMV/blob/master/scripts/cmv_analysis.py), contains a more expansive 'evidence language' set, more accurately measures rates of delta awarding, and collects all comments/discussion rather than top-level comments.  It can also be ran from the command line. 
+  - [This notebook](https://github.com/jpriniski/CMV/blob/master/scripts/evidence_use.ipynb) details how we studied evidence use and rates of belief change on _Change My View_
+  - [This script](https://github.com/jpriniski/CMV/blob/master/scripts/cmv_analysis.py) progresses the code in the notebook listed above.  ``cmv_analysis.py`` contains a more expansive 'evidence language' set, more accurately measures rates of delta awarding, and collects all comments/discussion rather than top-level comments.  It can also be ran from the command line. 
 
 ## Research & Publications 
 _pdfs of articles can be found on the [lab](https://www.cognitionasu.org) website_
@@ -107,13 +107,40 @@ def cnt_links(links):
     return com_links, tot_links, links_list
 ```
 #### Statistically-oriented language
-We consider statistically-oriented language to consist of the use of digits or commonly used data-oriented ans statistical words.  The functions `has_dig` and `has_stat_langauge` checks every word `w` used in a discussion to see if it contains one of the a digit or uses a commonly used staistical word.
-```python
-def has_dig(w):
-    return any(ch.isdigit() for ch in w)
+We consider evidence language to consist of the use of digits or commonly used data-oriented and statistical words.  
 
-def has_stat_language(w):
-    terms = ['data', 'stats', 'statistics', 'figures', '%', 'percent', 'average']
-    if any(t in w for t in terms) or has_dig(w):
-        return True
+```python
+def get_evid_lang(comments):
+    
+    evidence = []
+    total_evidence = []
+    
+    for comment in comments:
+        comment = str(comment)
+        
+        extensions = ['http://', 'https://', '.com', '.org', '.gov', 'pdf', '.net', 'www.']
+        
+        stems = ['data', 'stat', 'statist', 'figur', '%', 'percent', 'averag', 'number', 'amount', 
+                 'thousand', 'million', 'billion', '$', '€', '¥', '£', 'dollar', 'evid', 'info', 
+                 'testimoni', 'conclus', 'document', 'experi', 'experi', 'measur', 'measur', 'report', 
+                 'result', 'census', 'figur', 'plot', 'graph', 'sum', 'total', 'decim', 'digit', 'fraction',
+                 'numer', 'half', 'share', 'proport', 'capit', 'cash', 'properti', 'salari', 'wage', 'wealth', 
+                 'financ', 'resourc', 'roll', 'treasuri', 'bank', 'deposit', 'exchang', 'safe', 'estim', 'price', 
+                 'price', 'merchandis', 'retail', 'sale', 'cartel', 'invest', 'market', 'deposit', 'document', 
+                 'indic', 'wit', 'affirm', 'corrobor', 'declar', 'good', 'ground', 'token', 'signific', 'probabl', 
+                 'p valu', '<', '=', 'greater', 'equal', 'less', 'rang', 'devi', 'sd', 'mode',
+                 'median']
+        
+        comment_evidence = [] 
+        
+        comment_stemmed = snow.stem(comment.lower())
+        
+        for word in comment_stemmed.split():
+            if any(s == word for s in stems) and not any(e in word for e in extensions):
+                comment_evidence.append(word)
+    
+        evidence.append(comment_evidence)
+        total_evidence.append(len(comment_evidence))
+        
+    return evidence, total_evidence
  ```
