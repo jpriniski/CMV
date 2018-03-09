@@ -1,6 +1,6 @@
-# Attitude Change on Change My View (CMV)
+# Attitude Change on Reddit's Change My View (CMV)
 
-This is a code repository for the [Computation, Cognition, and Development Lab](https://www.cognitionasu.org/) at ASU, and this project studies attitude change on the subreddit [_Change My View_](https://www.reddit.com/r/changemyview/).  CMV is a popular online community where users post their stances on issues with the understanding that others will attempt to change their view by providing arguments opposing their perspective.  CMV allows us to study attitude change "in the wild" and with respect to a wide-variety of topics.
+This is a code repository for the [Computation, Cognition, and Development Lab](https://www.cognitionasu.org/) at ASU, and this project studies attitude change on the subreddit [_Change My View_](https://www.reddit.com/r/changemyview/).  CMV is a popular online community on Reddit where users post their stances on issues with the understanding that others will attempt to change their view by providing arguments opposing their perspective.  CMV allows us to study attitude change "in the wild" and with respect to a wide-variety of topics.
 
 ## Programming languages used
 - Data collection and preperation was exectued with Python
