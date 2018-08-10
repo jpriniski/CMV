@@ -1,0 +1,5 @@
+This folder is archived.  Higher-functioning code for our ongoing projects can be found in another directory on this repository.  
+
+The code in this folder in this folder was used for our CogSci 2018 proceedings:
+
+Priniski, J.H. & Horne, Z. (2018). Attitude Change on Reddit’s Change My View. In T.T. Rogers, M. Rau, X. Zhu, & C. W. Kalish (Eds.), Proceedings of the 40th Annual Conference of the Cognitive Science Society (pp. 2276-2281). Austin, TX: Cognitive Science Society.
