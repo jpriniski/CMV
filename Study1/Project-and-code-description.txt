@@ -1,4 +1,4 @@
-This folder is archived.  Higher-functioning code for our ongoing projects can be found in another directory on this repository.  
+This folder is archived.  Higher-functioning code for our ongoing projects can be found in another directory on this repository (look to Study2 or higher.)  
 
 The code in this folder in this folder was used for our CogSci 2018 proceedings:
 
