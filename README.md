@@ -6,3 +6,7 @@ This is the code and data repository for a project by the [Computation, Cognitio
 
 ### Study 1
 Priniski, J.H. & Horne, Z. (2018).[ Attitude Change on Reddit’s Change My View.](https://jpriniski.github.io/papers/cogsci-reddit.pdf) In T.T. Rogers, M. Rau, X. Zhu, & C. W. Kalish (Eds.), _Proceedings of the 40th Annual Conference of the Cognitive Science Society_ (pp. 2276-2281). Austin, TX: Cognitive Science Society.
+
+### Study 1
+
+_in progress_
