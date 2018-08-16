@@ -1,7 +1,8 @@
 # Attitude Change on Reddit's Change My View (CMV)
 
-This is the code and data repository for a project by the [Computation, Cognition, and Development Lab](https://www.cognitionasu.org/) that studies attitude change on the Reddit forum [Change My View](https://www.reddit.com/r/changemyview/).  
+This is the code and data repository for a project by the [Computation, Cognition, and Development Lab](https://www.cognitionasu.org/) that studies attitude change on the Reddit forum [Change My View](https://www.reddit.com/r/changemyview/).  This is a multi-study project, so the code will be divded into seperate directories based on which project the code is used for.  
 
-## Publications, Code, & Data
-Priniski, H. J. & Horne, Z. (2018). [Attitude Change on Reddit's Change My View.](https://static1.squarespace.com/static/59f0a43dbce176d4b82fee86/t/5af1d43b0e2e72a7ecf7bbc5/1525797949474/Attitude+Change+On+Reddit%27s+Change+My+View.pdf) _Proceedings of the 40th Annual Meeting of the Cognitive Science Society_.
-[[Data]](https://github.com/jpriniski/CMV/tree/master/data) [[Code]](https://github.com/jpriniski/CMV/blob/master/scripts/evidence_use.ipynb) 
+## Publications (& associated study)
+
+### Study 1
+Priniski, J.H. & Horne, Z. (2018).[ Attitude Change on Reddit’s Change My View.](https://jpriniski.github.io/papers/cogsci-reddit.pdf) In T.T. Rogers, M. Rau, X. Zhu, & C. W. Kalish (Eds.), _Proceedings of the 40th Annual Conference of the Cognitive Science Society_ (pp. 2276-2281). Austin, TX: Cognitive Science Society.
