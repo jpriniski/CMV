@@ -6,13 +6,16 @@ dollar
 euro
 yen 
 pounds
+inch
+mile
+nano
+meter
+kilo
+kg
 price
-cost
 value
 utility
 utilities
-<
-=
 greater
 equal
 less
@@ -21,7 +24,7 @@ money
 total
 totality 
 decimal
-infetistimal 
+infetistimal
 proportion
 proportionate
 marginal
@@ -31,6 +34,7 @@ nominally
 length
 area
 volume
+total
 size
 increase
 increasing

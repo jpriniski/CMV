@@ -1,13 +1,11 @@
 data
 figure
 amount 
-figure
 plot
 graph
 infographic
-sum
 percent
 percentile
 % 
-percentage point
-total
+percentage
+
