@@ -417,7 +417,7 @@ def main():
     #Since we may have multiple files in our data directory (this would occur if we collected
     #data on more than one occasion, as I generally do), we want to iterate over each
     #data file and execute the same code on each file.  
-    directory = os.fsencode('data_run')     
+    directory = os.fsencode('data')     
 
     #Iterate over files in our data folder.
     for file in os.listdir(directory): 
@@ -459,7 +459,7 @@ def main():
                     comment['evidence_use'] = classify_text(comment['body'], evidence)
         
             #Write our discussion JSON objects to a new file in the directory /coded. 
-            written = json_writer('data_run/coded/'+ filename, data)
+            written = json_writer('data/coded/'+ filename, data)
             
             #If data is succesfully written to file, json_writer return True.
             #We print a success message to confirm our data is saved. 
