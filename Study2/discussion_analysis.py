@@ -1,6 +1,6 @@
 """  
 Project Name: Attitude Change on Change My View (Study 2) 
-Name: comment_analysis.py
+Name: discussion_analysis.py
 
 Description of this script:
     
