@@ -86,10 +86,10 @@ def get_parent(comments, current):
             #Return this comment... it is the parent of current (as passed to the method)
             return comment 
 
-
-    #if the parent is not in the discussion, then something happened
+    #if the parent is not in the discussion, then something BAD happened to this comment
+    #and it died. ie, Reddit removed it from the discussion for some reason. 
+    #If this is the case, we will reutnr None for this comment because it is dead. 
     return None
-
 
 """We want to select out each comment where a delta was awarded. We can then 
 back track through the discussion tree to find which comment was awarded a delta. 
@@ -104,8 +104,7 @@ def get_delta_awards(comments, as_id = False):
 
         #DeltaBot awards deltas, so we need to look for comments where deltabot is the author
         if 'DeltaBot' in comment['author']:
-        
-
+    
             #DeltaBot does more than just award deltas.  
             #Since DeltaBot starts each delta awarding the same way: "Confirmed: 1 Delta awarded to",
             if ('confirmed: 1 delta awarded to' in comment['body'].lower()):
@@ -128,21 +127,32 @@ def award_deltas(comments):
 
     delta_awards = get_delta_awards(comments, as_id = True)
 
+    #Iterate over each comment
     for comment in comments:
+        #this will be the dictionary that houses our delta data for each comment. 
+        #The values we save are the count (the # of deltas a given comment recieves)
+        #and from (the author who awarded the comment a delta along with the reason they provide
+        #for awarding the delta.)
+        #We create an empty delta dictionary. Most comments (Since most comments don't recieve)
+        #deltas, will have the empty delta dictionary. 
         delta = {   'count':0,
                     'from': {}
                 }
 
+
+        #Put the emtpy delta data dictionary into each commnent's metadata. 
         comment['Delta'] = delta
 
+    #Iterate over comments again. 
     for comment in comments:    
         #If the comment was awarded a delta, then we will update the relevant Delta data. 
         if comment['id'] in delta_awards:
+
             #The comment where the delta is signified (that is, a user says "!delta")
             #is the parent of the DeltaBot's awarding of a Delta.  
-            
             delta_sig = get_parent(comments, comment)
 
+            #If the comment has no parent, there is nothing we can do. So we will just return.
             if delta_sig is None:
                 return
             
@@ -150,18 +160,12 @@ def award_deltas(comments):
             #delta sig comment
             dac = get_parent(comments, delta_sig)
 
+            #If the comment has no parent, there is nothing we can do. So we will just return. 
             if dac is None:
                 return
 
-            #some data is removed from discussions for numerous reasons, therefore
-            #we need to make sure our comment's parent is actually a comment. if 
-        
             #We will update the delta count for this comment by 1. 
             dac['Delta']['count'] += 1
-
-
-            
-
 
             #We will add the author and reason to the Delta's 'from' data. 
             dac['Delta']['from'].update({delta_sig['author']:delta_sig['body']})
@@ -331,8 +335,6 @@ def match(text, terms):
     #If there is no term in our topic list in the text, we return False
     
     return len(matches) > 0, matches
-
-                       
 
 """
 classify_text will classify a piece of text (in our case a discussion title and selftext or the body of a comment)
