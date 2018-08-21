@@ -50,10 +50,3 @@ estimation
 share
 digit
 fraction
-inch
-miles
-feet
-yards
-centimeter
-meter
-kilometer
