@@ -38,6 +38,7 @@ import nltk
 import json
 import itertools
 import string
+from bs4 import BeautifulSoup
 
 #Multiple methods requires word stemming, so we will declare it right away. 
 from nltk.stem.snowball import SnowballStemmer
@@ -60,7 +61,6 @@ def json_writer(directory, data):
             json.dump(data, outfile)
 
     return True 
-
 
 """
 THE FOLLOWING METHODS 
@@ -87,6 +87,10 @@ def get_parent(comments, current):
             return comment 
 
 
+    #if the parent is not in the discussion, then something happened
+    return None
+
+
 """We want to select out each comment where a delta was awarded. We can then 
 back track through the discussion tree to find which comment was awarded a delta. 
 """
@@ -100,13 +104,11 @@ def get_delta_awards(comments, as_id = False):
 
         #DeltaBot awards deltas, so we need to look for comments where deltabot is the author
         if 'DeltaBot' in comment['author']:
+        
+
             #DeltaBot does more than just award deltas.  
             #Since DeltaBot starts each delta awarding the same way: "Confirmed: 1 Delta awarded to",
-            #we will make sure that this is in the body of the comment. 
-            error_strings = ['this is hidden text for db3 to parse. please contact the author of db3 if you see this',  
-                            'this_is_hidden_text_for_db3_to_parse._please_contact_the_author_of_db3_if_you_see_this']
-            if ('confirmed: 1 delta awarded to' in comment['body'].lower()) and not(any(e in comment['body'].lower() for e in error_strings)):
-                
+            if ('confirmed: 1 delta awarded to' in comment['body'].lower()):
                 #as_id will make the search quicker in the next method. 
                 if as_id is True: 
                     delta_awards.append(comment['id'])
@@ -128,8 +130,8 @@ def award_deltas(comments):
 
     for comment in comments:
         delta = {   'count':0,
-                        'from': {}
-            }
+                    'from': {}
+                }
 
         comment['Delta'] = delta
 
@@ -138,21 +140,31 @@ def award_deltas(comments):
         if comment['id'] in delta_awards:
             #The comment where the delta is signified (that is, a user says "!delta")
             #is the parent of the DeltaBot's awarding of a Delta.  
+            
             delta_sig = get_parent(comments, comment)
 
-            if not(delta_sig is None):
-                #the parent of the delta_sig reply is the DAC. so we will get the parent of the 
-                #delta sig comment
-                dac = get_parent(comments, delta_sig)
+            if delta_sig is None:
+                return
+            
+            #the parent of the delta_sig reply is the DAC. so we will get the parent of the 
+            #delta sig comment
+            dac = get_parent(comments, delta_sig)
+
+            if dac is None:
+                return
 
             #some data is removed from discussions for numerous reasons, therefore
-            #
-            if not(dac is None): 
-                #We will update the delta count for this comment by 1. 
-                dac['Delta']['count'] += 1
+            #we need to make sure our comment's parent is actually a comment. if 
+        
+            #We will update the delta count for this comment by 1. 
+            dac['Delta']['count'] += 1
 
-                #We will add the author and reason to the Delta's 'from' data. 
-                dac['Delta']['from'].update({delta_sig['author']:delta_sig['body']})
+
+            
+
+
+            #We will add the author and reason to the Delta's 'from' data. 
+            dac['Delta']['from'].update({delta_sig['author']:delta_sig['body']})
 
 """
 THE FOLLOWING METHODS
@@ -293,6 +305,7 @@ If there is a match in the text with a given topic classifiation term, then the
 function returns True. If there is not a match, the method return False. 
 """
 def match(text, terms):
+    matches = []
     #We want to have a program that can match substrings of a text with 
     #terms of any length.  To do this, we need to find n-gram representations
     #of the text up to the number of tokens in the longest phrase in the topic
@@ -314,9 +327,12 @@ def match(text, terms):
         for term in terms:              
             #If one of the terms is in the text, we return True
             if term in grams:           
-                return True
+                matches.append(term)
     #If there is no term in our topic list in the text, we return False
-    return False                        
+    
+    return len(matches) > 0, matches
+
+                       
 
 """
 classify_text will classify a piece of text (in our case a discussion title and selftext or the body of a comment)
@@ -335,22 +351,40 @@ def classify_text(text, topics):
     for key, val in topics.items():
 
         #See if there is a match with the prepared text and any of the words in the topic list. 
-        text_match = match(prepared_text, val)
+        #text_match is boolean value
+        text_match, matches = match(prepared_text, val)
 
         #If there is a match with the text and one of the values in the list
         #of terms associated with a topic, we will set the topic value equal to 1.
         #This means that the text does relate to the topic.  
-        if text_match is True:
-            classifications[key] = 1
-
-        #If there is not a match with the text and one of the values in the list
-        #of terms associated with a topic, we will set the topic value equal to 0.
-        #This means that the text does not relate to the topic.  
-        if text_match is False:
-            classifications[key] = 0
+        
+        classifications[key] = {'match':text_match, 'terms':matches}
+        
+        #if a classification model wishes to classify a text if it contains a digit, 
+        #then the classifiaction key (topic name) needs to contain numbers in it. 
+        #Therefore, if 'number' is in the topic name, we will also search the string
+        #for use of a digit.  
+        if 'number' in key.lower():
+            if any(char.isdigit() for char in text):
+                classifications[key]['match'] = True
+                digits = [char for char in text if char.isdigit()]
+                classifications[key]['terms'] = classifications[key]['terms'].append(digits)
 
     #We will return out list of topic classifications for the given text. 
     return classifications
+
+def get_links(comments):
+
+    for comment in comments:
+        html_doc = comment['body_html']
+        soup = BeautifulSoup(html_doc, 'html.parser')
+        link_list_tag = soup.findAll('a', attrs={'href': re.compile("^https?://")})
+        link_list_str = []
+
+        for link in link_list_tag:
+            link_list_str.append(str(link))
+
+        comment['links'] = link_list_str
 
 #This is the main method.  This is where the script starts and essentially runs from.
 def main():    
@@ -374,13 +408,14 @@ def main():
         'numbers' : read_terms('evidence-language/numbers.txt'),
         'stats' : read_terms('evidence-language/stats.txt'),
         'values' : read_terms('evidence-language/values.txt'),
+        'explanations': read_terms('evidence-language/explanatory.txt')
     }
 
     #Encode our directory where our discussion data is as a directory object.
     #Since we may have multiple files in our data directory (this would occur if we collected
     #data on more than one occasion, as I generally do), we want to iterate over each
     #data file and execute the same code on each file.  
-    directory = os.fsencode('data')     
+    directory = os.fsencode('data_run')     
 
     #Iterate over files in our data folder.
     for file in os.listdir(directory): 
@@ -405,7 +440,9 @@ def main():
                 #Firstly, we will classify each post with respect to the topic. 
                 #The topic attribute in the post JSON object will denote what the discussion's classification is. 
                 post['topic'] = classify_text(title + ' ' + body, topics)
-        
+                
+                get_links(post['_comments'])
+
                 #Secondly, we will first denote how many deltas each comment recieved
                 award_deltas(post['_comments'])
 
@@ -420,7 +457,7 @@ def main():
                     comment['evidence_use'] = classify_text(comment['body'], evidence)
         
             #Write our discussion JSON objects to a new file in the directory /coded. 
-            written = json_writer('data/coded/'+ filename, data)
+            written = json_writer('data_run/coded/'+ filename, data)
             
             #If data is succesfully written to file, json_writer return True.
             #We print a success message to confirm our data is saved. 
