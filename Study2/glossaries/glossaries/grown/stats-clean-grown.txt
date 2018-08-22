@@ -1,0 +1,233 @@
+absolute value of a residual
+alternative hypothesis
+analysis of variance
+area to the left
+area to the right
+assumption
+average
+balanced design
+bar graph
+bernoulli trial
+bernoulli trials
+binomial distribution
+binomial experiment
+binomial probability distribution
+bivariate
+blinding
+box plot
+box plots
+box-and-whisker plots
+box-whisker plots
+categorical data
+categorical variable
+categorical variables
+central limit theorem
+central limit theorem for means
+central limit theorem for sums
+chi-square distribution
+cluster sampling
+coefficient of correlation
+coefficient of determination
+cohen's d
+complement
+conditional probability
+confidence interval
+confidence intervals
+confidence level
+contingency table
+continuity correction factor
+continuous
+continuous random variable
+control group
+convenience sampling
+critical value
+cumulative distribution function
+cumulative relative frequency
+data
+decay parameter
+degrees of freedom
+dependent events
+descriptive statistics
+discrete
+discrete random variable
+double-blind experiment
+double-blinding
+empirical rule
+equal standard deviations
+equally likely
+error bound
+error bound for a population
+mean
+event
+expected value
+expected values
+experiment
+experimental unit
+explanatory variable
+exponential distribution
+extrapolation
+ff
+distribution
+f ratio
+fair
+first quartile
+frequency
+frequency polygon
+frequency table
+geometric distribution
+geometric experiment
+goodness-of-fit test
+histogram
+hypergeometric experiment
+hypergeometric probability
+hypotheses
+hypothesis
+hypothesis test
+hypothesis testing
+independent
+independent events
+independent groups
+inferential statistics
+influential points
+informed consent
+institutional review board
+institutional review boards
+index
+interpolation
+interquartile range
+interval
+interval scale
+law of large numbers
+least-squares line
+least-squares regression line
+level of measurement
+level of significance of the test
+line of best fit
+linear regression
+long-term relative frequency
+lurking variable
+lurking variables
+margin of error
+matched pairs
+mean of a probability
+mean square
+median
+memoryless property
+midpoint
+mode
+multivariate
+mutually exclusive
+nominal scale
+nonsampling error
+normal approximation to the
+binomial
+normal distribution
+normally distributed
+null hypothesis
+numerical variable
+numerical variables
+observed values
+one-way anova
+ordinal scale
+outcome
+outlier
+outliers
+pp
+-value
+paired data set
+parameter
+pareto chart
+pearson
+percentile
+percentiles
+pie chart
+placebo
+point estimate
+poisson distribution
+poisson probability distribution
+pooled proportion
+population
+population variance
+potential outlier
+probability
+probability density function
+probability distribution function
+proportion
+qualitative data
+quantitative continuous data
+quantitative data
+quantitative discrete data
+quartiles
+random assignment
+random sampling
+random variable
+ratio scale
+relative frequency
+replacement
+representative sample
+residual
+response variable
+sample
+sample mean
+sample size
+sample space
+samples
+sampling
+sampling bias
+sampling distribution
+sampling error
+sampling variability of a statistic
+sampling with replacement
+sampling without replacement
+simple random sample
+simple random sampling
+single population mean
+single population proportion
+skewed
+standard deviation
+standard deviation of a
+probability distribution
+standard error
+standard error of the mean
+standard error of the mean.
+standard normal distribution
+this openstax book is available for free at http://cnx.org/content/col/.
+statistic
+statistics
+stratified sampling
+student's t-distribution
+sum of squares
+systematic sampling
+test for homogeneity
+test of a single variance
+test of independence
+test statistic
+the and event
+the complement event
+the conditional probability of a
+given b
+the conditional probability of
+one event given another
+the law of large numbers
+the or event
+the or of two events
+the standard deviation
+third quartile
+treatments
+tree diagram
+type  error
+type i error
+type ii error
+unfair
+uniform distribution
+variable
+variance
+variance between samples
+variance within samples
+variances
+variation
+venn diagram
+blind
+quartile
+skew
+treatment

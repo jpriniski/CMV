@@ -1,0 +1,351 @@
+alternative hypothesis, 382, 390
+Analysis of Variance, 528
+average, 7
+Average, 31, 322
+B
+b is the symbol for Slope, 586
+balanced design, 524
+bar graph, 12
+Bernoulli Trial, 207
+Bernoulli Trials, 219
+binomial distribution, 346, 397
+Binomial Distribution, 353, 402
+Binomial Experiment, 219
+binomial probability distribution,
+207
+Binomial Probability Distribution,
+219
+bivariate, 552
+Bivariate, 586
+Blinding, 30, 31
+C
+Categorical Variable, 31
+Categorical variables, 6
+Central Limit Theorem, 307,
+322, 402
+chi-square distribution, 466
+Cluster Sampling, 31
+coefficient of determination, 566
+coefficient of multiple
+determination, 566
+Cohen's d, 427
+Cohen’s d, 441
+complement, 134
+conditional probability, 134
+Conditional Probability, 174, 258
+confidence interval, 334, 343,
+575
+Confidence Interval (CI), 353,
+402
+confidence intervals, 346
+Confidence intervals, 382
+confidence level, 336
+Confidence Level (CL), 353
+contingency table, 151, 477
+Contingency Table, 174, 486
+continuous, 9
+Continuous Random Variable,
+31
+control group, 30
+Control Group, 31
+Convenience Sampling, 31
+Critical Value, 402
+critical values, 387
+cumulative distribution function
+(CDF), 251
+Cumulative relative frequency,
+22
+Cumulative Relative Frequency,
+31
+D
+data, 5
+Data, 6, 31
+decay parameter, 258
+degrees of freedom, 343
+Degrees of Freedom (df), 353
+degrees of freedom (df), 422
+Dependent Events, 174
+dependent variable, 29, 32
+descriptive statistics, 5
+discrete, 9
+Discrete Random Variable, 31
+double-blind experiment, 30
+Double-blinding, 31
+E
+Empirical Rule, 281
+empirical rule, 334
+equal standard deviations, 517
+Equally likely, 133
+Equally Likely, 174
+Error Bound for a Population
+Mean (EBM), 353
+Error Bound for a Population
+Proportion (EBP), 353
+Error Bound Mean, 336
+estimate of the error variance,
+563
+event, 133
+Event, 174
+expected mean, 574
+expected value, 575
+expected values, 470
+experiment, 133
+Experiment, 174
+experimental unit, 29
+Experimental Unit, 31
+explanatory variable, 29
+Explanatory Variable, 31
+exponential distribution, 249
+Exponential Distribution, 258
+FF
+distribution, 517
+F ratio, 518
+fair, 133
+Finite Population Correction
+Factor, 322
+first quartile, 65
+frequency, 22, 54
+Frequency, 31, 87
+Frequency Table, 87
+G
+geometric distribution, 211
+Geometric Distribution, 219
+Geometric Experiment, 219
+Goodness-of-Fit, 486
+goodness-of-fit test, 470
+H
+histogram, 54
+Histogram, 87
+hypergeometric experiment, 220
+Hypergeometric Experiment,
+219
+Hypergeometric Probability, 219
+hypotheses, 382
+Hypothesis, 402
+hypothesis test, 403
+hypothesis testing, 382
+Hypothesis Testing, 402
+I
+independent, 138, 147
+Independent Events, 174
+Independent groups, 419
+Independent Groups, 441
+independent variable, 29, 31
+inferential statistics, 5, 333
+Inferential Statistics, 353
+Informed Consent, 31
+Institutional Review Board, 31
+interquartile range, 65
+Interquartile Range, 87
+interval scale, 21
+L
+law of large numbers, 134, 310
+level of measurement, 21
+Linear, 586
+long-term relative frequency,
+133
+Lurking Variable, 31
+lurking variables, 29
+M
+matched pairs, 419
+Matched Pairs, 441
+Mathematical Models, 31
+mean, 6, 7, 71
+Mean, 322
+Mean (arithmetic), 87
+Index 621
+Mean (geometric), 87
+mean square, 518
+median, 64, 71
+Median, 87
+memoryless property, 258
+Midpoint, 87
+mode, 73
+Mode, 87
+multiple correlation coefficient,
+566
+multivariate, 552
+Multivariate, 586
+mutually exclusive, 140, 147
+Mutually Exclusive, 174
+N
+nominal scale, 21
+Nonsampling Error, 31
+Normal Distribution, 292, 322,
+353, 402
+normal distribution, 343, 386
+null hypothesis, 382, 389
+Numerical Variable, 31
+Numerical variables, 6
+O
+Observational Study, 31
+observed values, 470
+One-Way ANOVA, 528
+ordinal scale, 21
+outcome, 133
+Outcome, 174
+outlier, 46, 66
+Outlier, 87
+P
+p, 397
+p-value, 390
+paired data set, 61
+parameter, 6, 333
+Parameter, 31, 353
+Pareto chart, 12
+Pearson, 6
+percentage impact, 573
+Percentile, 87
+percentiles, 64
+pie chart, 12
+placebo, 30
+Placebo, 31
+point estimate, 334
+Point Estimate, 353
+Poisson distribution, 258
+Poisson probability distribution,
+214, 221
+Poisson Probability Distribution,
+220
+Pooled Variance, 441
+population, 6, 20
+Population, 32
+population variance, 466
+Power of the Test, 384
+prediction interval, 575
+preset or preconceived α, 390
+Probability, 6, 32, 174
+probability, 133
+probability density function, 204,
+242
+probability distribution function,
+204
+Probability Distribution Function
+(PDF), 220
+proportion, 6
+Proportion, 32
+Q
+Qualitative data, 9, 9
+Qualitative Data, 32
+quantitative continuous data, 9
+Quantitative data, 9
+Quantitative Data, 32
+quantitative discrete data, 9
+quartiles, 64
+Quartiles, 65, 87
+R
+R2 – Coefficient of
+Determination, 586
+R – Correlation Coefficient, 586
+random assignment, 30
+Random Assignment, 32
+Random Sampling, 32
+random variable, 203
+Random variable, 423
+Random Variable, 433
+Random Variable (RV), 220
+ratio scale, 21
+relative frequency, 22, 54
+Relative Frequency, 32, 87
+replacement, 138
+representative sample, 6
+Representative Sample, 32
+Residual or “error”, 586
+response variable, 29
+Response Variable, 32
+S
+sample, 6
+Sample, 32
+sample space, 133, 146, 158
+Sample Space, 174
+samples, 20
+sampling, 6
+Sampling Bias, 32
+Sampling Distribution, 322
+Sampling Error, 32
+Sampling with Replacement, 32,
+174
+Sampling without Replacement,
+32, 174
+significance level, 390
+Simple Random Sampling, 32
+standard deviation, 79, 343, 386
+Standard Deviation, 87, 353,
+402
+standard error, 421
+standard error of the estimate,
+563
+Standard Error of the Mean, 322
+Standard Error of the
+Proportion, 322
+standard normal distribution,
+280
+Standard Normal Distribution,
+292
+standardizing formula, 283
+statistic, 6
+Statistic, 32
+Statistical Models, 32
+statistics, 5
+Stratified Sampling, 32
+Student's t-distribution, 343, 386
+Student's t-Distribution, 353,
+402
+Sum of Squared Errors (SSE),
+562, 586
+sum of squares, 518
+Survey, 32
+Systematic Sampling, 32
+T
+test for homogeneity, 482
+Test for Homogeneity, 486
+test of a single variance, 466
+test of independence, 477
+Test of Independence, 486
+test statistic, 387, 433
+Test Statistic, 402
+the Central Limit Theorem, 308
+The Complement Event, 174
+The Conditional Probability of A
+| B, 174
+The Intersection: the ∩ Event,
+174
+The standard deviation, 432
+The Union: the ∪ Event, 174
+third quartile, 65
+treatments, 29
+Treatments, 32
+tree diagram, 157
+622 Index
+This OpenStax book is available for free at http://cnx.org/content/col11776/1.33
+Tree Diagram, 174
+Type I, 390
+Type I error, 384
+Type I Error, 402
+Type II error, 384
+Type II Error, 402
+U
+unfair, 134
+Uniform Distribution, 258
+unit, 573
+unit change, 573
+units, 573
+V
+variable, 6
+Variable, 32
+variance, 80
+Variance, 87, 528
+Variance between samples, 518
+Variance within samples, 518
+variances, 517
+Variation, 20
+Venn diagram, 163
+Venn Diagram, 174
+X
+X – the independent variable,
+586
+Y
+Y – the dependent variable, 586
+Z
+z-score, 292, 343
+z-scores,
