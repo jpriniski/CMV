@@ -32,8 +32,43 @@ abramoff
 abzug
 acquisitive model
 ```
+Here is an abstracted Python method that performs the glossary preperation and cleaning:
+``` python
+def make_clean_index(directory):
+
+  # Read in text file
+  text_file = open(directory, "r")
+  
+  #Split the text after each newline to create a Python list of terms
+  lines = text_file.read().split('\n')
+  
+  # Create a mapping table that will map digits to empty strings
+  table = str.maketrans("","",string.digits) 
+	
+  # We will appened our cleaned lines to the new_lines list
+  new_lines = []
+  for line in lines:
+  
+    # Cast the string to lower case
+    line = line.lower()
+    
+    # Replace each comma with an empty string
+    line = line.replace(",","")
+    
+    # Remove digits by using the mapper table from above
+    line = line.translate(table)
+    
+    # We will not add terms enclosed in parentheses (since they are abbreviations of terms in the glossary)
+    if "(" not in line:
+    
+      # Before appeneding our almost clean text line to the new_lines list, we will strip any additional trailing white space for good measure
+      new_lines.append(line.strip())   
+      
+  return new_lines
+```
+
 ### Step 3: Adding lemmas
-We used WordNet lemmatizer to add similar forms of words already in our glossary to our glossary.  That is, we made sure that the noun, verb, and adjective form of each word in our prepared gloassary of terms (as described in Step 2) were also in the glassary of terms. 
+We used WordNet lemmatizer to add the noun, verb, and adjective forms of terms to our glossary.  
 
 Some high-level python code details how we did this:
 
@@ -42,6 +77,7 @@ Some high-level python code details how we did this:
 from nltk.stem.wordnet import WordNetLemmatizer
 
 for word in glossary:
+
   # We will add the verb, noun, and adjective lemmas of each word in word bank.
   # 'v' stands for verb, 'n' stands for noun, and 'a' stands for adjective
   for w in ['v','n','a']:
