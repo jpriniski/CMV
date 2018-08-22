@@ -67,6 +67,9 @@ def make_clean_index(directory):
   return new_lines
 ```
 
+We also did some additional cleaning for terms that were missed by the algorithim.  For example, changing words like 'type i error' to 'type one error'.
+
+
 ### Step 3: Adding lemmas
 We used WordNet lemmatizer to add the noun, verb, and adjective forms of terms to our glossary.  
 
