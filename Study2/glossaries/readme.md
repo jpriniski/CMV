@@ -1,16 +1,18 @@
-# Creating the word gloassaries. 
+# Creating the word glossaries 
 
-Here we describe our process of constructing glossaries of terms used in determining the evidence use in comment bodies in Change My View discussions. 
+We use terms collected from the glossaries of four textbooks to construct our corpus of evidentiary words. Here, we describe the process of turning the raw glossaries (as collected from the textbooks) into a corpus of evidence language, and then describe the protocol for partitioning the words into sub-categories of more detailed evidence types. 
 
 ### Step 1: Gathering glossaries of terms
-Terms were gathered from the glossaries in the following books from [openstax.org](https://openstax.org/):
+Terms were gathered from the glossaries in the following four books from [openstax.org](https://openstax.org/):
 
 - [American Government]( https://openstax.org/details/books/american-government)
 - [Principles of Economics]( https://openstax.org/details/books/principles-economics-2e)
 - [Business Statistics](https://openstax.org/details/books/introductory-business-statistics)
 - [Introductory Statistics](https://openstax.org/details/books/introductory-statistics)
 
-We copied the glossary content from each textbook into a text file.  For example, here are the some terms in the American Government gloassary:
+The books were chosen because they best represent the breadth of evidentiary language commonly used in discussions on Change My View (and in everyday discussions for that manner.)  That is, textbooks on more techincal subject manner, like Quantum Physics or Calculus, for example, would contain terms not commonly used in such a setting. 
+
+We copied the glossary content from each textbook into a seperate text file (a single text file for a single glossary.)  For example, here are the some terms at the head of the American Government gloassary:
 
 |Term                                    | Page(s) |
 |:--------------------------------------:|:-------:|
@@ -23,7 +25,7 @@ We copied the glossary content from each textbook into a text file.  For example
 |(AIM)                                   | 192     |
 
 ### Step 2: Cleaning and preparing glossaries of terms
-We then removed page numbers, commas, and terms in parentheses from the glossary in addition to casting strings to lower case. This resulted in our glossary (such as those listed in the table above) to look as follows:
+We then removed page numbers, commas, and terms in parentheses from the glossary in addition to casting strings to lower case. This resulted in the following *cleaned* glossary:
 ```
 aarp
 abbot
@@ -32,7 +34,7 @@ abramoff
 abzug
 acquisitive model
 ```
-Here is an abstracted Python method that performs the glossary preperation and cleaning:
+This cleaning is followed out by the following (slightly abstracted from its original form) Python method:
 ``` python
 def make_clean_index(directory):
 
