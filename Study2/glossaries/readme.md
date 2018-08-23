@@ -96,3 +96,20 @@ for word in glossary:
 ```
 
 ### Step 4: Partitioning extended word glossaries into classes of evidence
+
+We will use affinity propgation (Frey and Dueck, 2007) to cluster the words into classes of evidence type. To do this, we need to 
+
+
+
+
+
+
+#### References
+
+Frey, B.J. & Dueck, D. (2007). Clustering by Passing Messages Between Data Points. *Science*.
+
+
+
+
+
+
